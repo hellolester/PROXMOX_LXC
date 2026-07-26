@@ -1,0 +1,22 @@
+# Example Grafana configuration snippet
+# Full file lives at /etc/grafana/grafana.ini
+# Only the relevant sections for this project are shown below.
+
+[server]
+protocol = http
+http_port = 3000
+domain = 10.0.10.204
+
+[security]
+admin_user = admin
+# Change this after first login
+admin_password = admin
+
+[plugins]
+# Required so the Zabbix plugin (unsigned) can load
+allow_loading_unsigned_plugins = alexanderzobnin-zabbix-app
+
+[database]
+# Grafana's own internal database (separate from the Zabbix DB)
+type = sqlite3
+path = grafana.db

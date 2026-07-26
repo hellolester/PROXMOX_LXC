@@ -1,0 +1,23 @@
+# Backups
+/backup/
+*.tar.gz
+*.sql
+*.sql.gz
+
+# Config files with real secrets (only .example files should be committed)
+config/grafana.ini
+config/nginx.conf
+config/zabbix-server.conf
+config/mariadb.cnf
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+.vscode/
+.idea/

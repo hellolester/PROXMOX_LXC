@@ -1,0 +1,23 @@
+# Example Zabbix server configuration snippet
+# Full file lives at /etc/zabbix/zabbix_server.conf
+# Only the values relevant to this project are shown below.
+# Replace placeholder values before use — do not commit real passwords.
+
+# Database connection
+DBHost=localhost
+DBName=zabbix
+DBUser=zabbix
+DBPassword=CHANGE_ME
+
+# Listen port (default Zabbix server port, unrelated to the web frontend port)
+ListenPort=10051
+
+# Logging
+LogFile=/var/log/zabbix/zabbix_server.log
+LogFileSize=0
+
+# PID file
+PidFile=/run/zabbix/zabbix_server.pid
+
+# Timeout for external checks
+Timeout=4

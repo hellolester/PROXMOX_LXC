@@ -1,0 +1,17 @@
+# Example MariaDB configuration snippet
+# Full file lives at /etc/mysql/mariadb.conf.d/50-server.cnf
+# Tuned lightly for a small 4GB RAM host running Zabbix + Grafana
+
+[mysqld]
+bind-address = 127.0.0.1
+
+# Required by Zabbix for trigger functions
+log_bin_trust_function_creators = 1
+
+# Character set (must match Zabbix database creation)
+character-set-server = utf8mb4
+collation-server = utf8mb4_bin
+
+# Basic tuning for a small host (adjust based on available RAM)
+innodb_buffer_pool_size = 256M
+max_connections = 100

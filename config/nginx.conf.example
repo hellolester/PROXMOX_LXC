@@ -1,0 +1,30 @@
+# Example Nginx configuration for the Zabbix frontend
+# Full file lives at /etc/zabbix/nginx.conf
+# Zabbix web UI is served on port 2888 instead of the default 80
+
+server {
+    listen          2888;
+    server_name     10.0.10.204;
+
+    root    /usr/share/zabbix;
+    index   index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass   unix:/run/php/php8.1-fpm.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+
+    location /assets {
+        access_log off;
+        expires 10d;
+    }
+
+    access_log  /var/log/nginx/zabbix.access.log;
+    error_log   /var/log/nginx/zabbix.error.log;
+}
