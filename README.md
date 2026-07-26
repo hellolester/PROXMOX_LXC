@@ -96,8 +96,8 @@ See [docs/architecture.md](docs/architecture.md) for a more detailed breakdown.
 
 | Service | URL |
 |---|---|
-| Zabbix | http://10.0.10.204:2888/zabbix |
-| Grafana | http://10.0.10.204:3000 |
+| Zabbix | http://localhost:port/zabbix |
+| Grafana | http://localhost:3000 |
 
 ---
 
